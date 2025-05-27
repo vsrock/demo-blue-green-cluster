@@ -1,0 +1,25 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-green-deployment
+  labels:
+    app: nodejs
+    version: green
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nodejs
+      version: green
+  template:
+    metadata:
+      labels:
+        app: nodejs
+        version: green
+    spec:
+      containers:
+      - name: nodejs-container
+        image: 807593376975.dkr.ecr.us-east-1.amazonaws.com/nodejs-bluegreen:latest
+        ports:
+        - containerPort: 3000
