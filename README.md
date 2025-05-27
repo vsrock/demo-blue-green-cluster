@@ -8,9 +8,13 @@ Sample repository to create EKS cluster, Deploy jenkins on it and demonstrate a 
 
 
 # Use:
-1. Upload automation shell script to CloudShell:
+1. Upload automation shell scripts to CloudShell:
+   	aws s3 cp s3://my-nodejs-bluegreen-source/automation_script/setup_eks_jenkins_codebuild.sh .
 	aws s3 cp s3://my-nodejs-bluegreen-source/automation_script/deploy.sh .
-2. Make it executable: 
+2. Make executable:
+   	chmod +x setup_eks_jenkins_codebuild.sh 
 	chmod +x deploy.sh
-3. Run it to switch traffic between blue and green:
+3. Run setup_eks_jenkins_codebuild.sh for complete setup with EKS cluster.
+    	./setup_eks_jenkins_codebuild.sh
+4. Run deploy to switch traffic between blue and green:
    ./deploy.sh blue or ./deploy.sh green
